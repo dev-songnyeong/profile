@@ -30,8 +30,8 @@ export const eng = {
       subTitle:
         "an Integrated school managemnet system. supporting streaming service",
       tech: [['react',techLogo.react],['javascript', techLogo.javascript],['java',techLogo.java], ['node', techLogo.node], ['css', techLogo.css], ['html', techLogo.html], ['aws', techLogo.aws]],
-      image: `/imgs/projectMain/movie_app_main.JPG`,
-      url: `https://imthesong.site`,
+      image: `/imgs/projectMain/pickle_main.JPG`,
+      url: `https://www.notion.so/Pickle-98bbf67e242b43409893d295725ea762`,
     },
     {
       id: "project2",
@@ -62,8 +62,8 @@ export const eng = {
       title: "Simple Weather",
       subTitle: "Simple weather indicating Application",
       tech:[['reactNative',techLogo.reactNative],['javascript', techLogo.javascript],['openweatherapi', techLogo.weather]],
-      image: ``,
-      url: ``,
+      image: `/imgs/projectMain/simple_weather_main.JPG`,
+      url: `https://snack.expo.io/@songnyeong/simple-weather`,
     },
   ],
   cv:{
@@ -99,7 +99,7 @@ export const kor = {
     projects2: {
       title: "Switter",
       subTitle: "Social Network Service",
-      tech: `React.js, Node.js, Node Express, GraphQL, Styled-Components, HTML, MongoDB Atlas`,
+      tech: `React.js, Node.js, Node Express, GraphQL, Styled Components, HTML, MongoDB Atlas`,
       image: ``,
       url: ``,
     },
