@@ -38,8 +38,8 @@ export const eng = {
       title: "Switter",
       subTitle: "Social Network Service",
       tech: [['react',techLogo.react], ['node', techLogo.node], ['express', techLogo.express], ['graphql', techLogo.graphql], ['styledComponents', techLogo.styledComponents], ['html', techLogo.html], ['css', techLogo.css], ['mongodbAtlas', techLogo.mongodb]],
-      image: `/imgs/projectMain/movie_app_main.JPG`,
-      url: ``,
+      image: `/imgs/kako.jpg`,
+      url: `https://www.notion.so/Switter-f4ec866d08424f7a878cd098d0625819`,
     },
     {
       id: "project3",
