@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./router/home";
 import { createGlobalStyle } from "styled-components";
+import useWindows from './hooks/useWindows'
 
 import Navbar from "./components/Navbar";
 import About from "./router/About";
@@ -35,6 +36,7 @@ function App() {
   return (
     <>
         <ThemeProvider>
+          {useWindows('contextmenu', e => e.preventDefault())}
           <Router />
           <GlobalStyle />
           <Navbar />

@@ -30,7 +30,7 @@ const TextBox = styled.div`
     height: 30%;
     color: white;
     text-align: center;
-    word-break: keep-all;
+    word-wrap: break-word;
 `
 
 const TechStack = ({ tech }) => {

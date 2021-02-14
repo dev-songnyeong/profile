@@ -60,9 +60,9 @@ export const eng = {
     {
       id: "project5",
       title: "Simple Weather",
-      subTitle: "Simple weather indicating Application",
+      subTitle: "Simple weather indicating Application based on user's location",
       tech:[['reactNative',techLogo.reactNative],['javascript', techLogo.javascript],['openweatherapi', techLogo.weather]],
-      image: `/imgs/projectMain/simple_weather_main.JPG`,
+      image: `/imgs/projectMain/simple_weather_main.jpg`,
       url: `https://snack.expo.io/@songnyeong/simple-weather`,
     },
   ],
