@@ -13,6 +13,7 @@ const ProjectBoxWrapper = styled(A)`
   border-bottom: 1px solid ${(props) => props.theme.colors.color};
   margin-bottom: 10%;
   z-index: 5;
+  cursor: pointer;
 
   &:hover {
     background: linear-gradient(${(props) => props.theme.colors.gradient});
