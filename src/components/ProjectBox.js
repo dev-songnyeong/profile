@@ -5,7 +5,7 @@ import TechStack from "./TechStack";
 
 const ProjectBoxWrapper = styled(A)`
   width: 31%;
-  height: 40%;
+  height: 50%;
   padding: 0 2% 0 2%;
   display: flex;
   flex-direction: column;

@@ -44,7 +44,7 @@ export const eng = {
     {
       id: "project3",
       title: "Movie APP",
-      subTitle: "Movie ",
+      subTitle: "Simple movie app",
       tech: [['react',techLogo.react], ['graphql', techLogo.graphql],['javascript', techLogo.javascript], ['html', techLogo.html], ['css', techLogo.css]],
       image: `/imgs/projectMain/movie_app_main.JPG`,
       url: `https://www.notion.so/MovieApp-bcc998e445554bc6818aa85f5750dae0`,

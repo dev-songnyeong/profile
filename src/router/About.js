@@ -106,7 +106,7 @@ const About = () => {
             justify='flex-end'
             align='flex-end'
           >
-            {isMouseOver && <Introduction width='49%' height='13%' left='4.7%' top='32%'>TEAM-PLAYER</Introduction>}
+            {isMouseOver && <Introduction width='52%' height='13%' left='4.7%' top='32%'>TEAM-PLAYER</Introduction>}
           </Imgs>
         </ImgBox>
         <TextBox>
