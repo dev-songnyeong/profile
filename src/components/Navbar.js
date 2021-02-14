@@ -27,8 +27,10 @@ const Download = styled(A)`
   width: 40%;
   height: 65%;
   border: none;
-  text-align: center;
-  line-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
   background: ${(props) => props.theme.colors.color};
   color: ${(props) => props.theme.colors.bgColor};
   cursor: pointer;

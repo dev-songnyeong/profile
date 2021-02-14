@@ -24,13 +24,19 @@ const ProjectBoxWrapper = styled(A)`
   color: ${(props) => props.theme.colors.color};
   }
 `;
-const ImgBox = styled.img`
+const ImgBox = styled.div`
   width: 100%;
-  height: 70%;
+  height: 60%;
+  overflow: hidden;
 `;
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+`;
+
 const TextBox = styled(FlexBox)`
   width: 100%;
-  height: 25%;
+  height: 40%;
   justify-content: center;
   align-items: center;
 `;
@@ -50,7 +56,7 @@ const TitleBox = styled.div`
     `}
 
 `
-const ProjectBox = ({ props: { title, subTitle, tech, url} }) => {
+const ProjectBox = ({ props: { title, subTitle, tech, url, image} }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   return (
     <>
@@ -60,7 +66,9 @@ const ProjectBox = ({ props: { title, subTitle, tech, url} }) => {
         href={url}
         target={"_blank"}
       >
-        {isMouseOver ? <TechStack tech={tech} ></TechStack> : <ImgBox></ImgBox>}
+        <ImgBox>
+        {isMouseOver ? <TechStack tech={tech} ></TechStack> : <Img src={process.env.PUBLIC_URL + image} alt={title}/>}
+        </ImgBox>
         <TextBox>
           <TitleBox>
             <H3>{title}</H3>

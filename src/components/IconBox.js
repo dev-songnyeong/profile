@@ -20,7 +20,7 @@ const IconBox = ({props:{logo, address, name}}) => {
     return (
         <>
             <IconContainer >
-                <ImgBox src={logo}/>
+                <ImgBox src={process.env.PUBLIC_URL+logo}/>
                 <TextBox href={address}>
                     <H4>{address}</H4></TextBox>
             </IconContainer>

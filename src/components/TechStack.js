@@ -1,29 +1,33 @@
 import React from 'react';
 import styled from 'styled-components'
-import { FlexBox, H4 } from '../util/util'
+import { FlexBox } from '../util/util'
 
 const Wrapper = styled(FlexBox)`
-    width:94%;
+    width:100%;
     height: 100%;
     background: ${props => props.theme.colors.color}; 
-    /* opacity: 0.5; */
     flex-wrap: wrap;
-    padding: 0 3% 0 3%;
-    justify-content: space-evenly;
+    overflow: hidden;
 `
 const LogoWrapper = styled(FlexBox)`
-    width: 25%;
-    height: 30%;
+    width: 22%;
+    height: 38%;
     flex-direction: column;
-    opacity: 1;
 `
-const LogoBox = styled.img`
+
+const LogoBox = styled.div`
     width: 90%;
-    height: 80%;
+    height: 60%;
+
+`
+const LogoImg = styled.img`
+    width: 100%;
+    height: 100%;
+
 `
 const TextBox = styled.div`
     width: 90%;
-    height: 20%;
+    height: 30%;
     color: white;
     text-align: center;
 `
@@ -31,17 +35,16 @@ const TextBox = styled.div`
 const TechStack = ({ tech }) => {
     return (
         <>
-            <FlexBox width='100%' height='70%'>
-                <Wrapper>
-                    {tech.map(name => (
-                        <LogoWrapper key={name[1]}>
-                            <LogoBox src={name[1]}/>
-                            <TextBox>{name[0]}</TextBox>
-                        </LogoWrapper>
-                    ))}
-                    {/* <H4 reverse style={{opacity: '1'}}>{tech}</H4> */}
-                </Wrapper>
-            </FlexBox>
+            <Wrapper>
+                {tech.map(name => (
+                    <LogoWrapper key={name[0]}>
+                        <LogoBox>
+                            <LogoImg src={process.env.PUBLIC_URL + name[1]} />
+                        </LogoBox>
+                        <TextBox>{name[0]}</TextBox>
+                    </LogoWrapper>
+                ))}
+            </Wrapper>
 
         </>
     );
