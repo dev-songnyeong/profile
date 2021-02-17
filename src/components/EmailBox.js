@@ -2,11 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
 
+import { device } from '../util/theme'
 import { Button, FlexBox } from "../util/util";
 
 const Wrapper = styled(FlexBox)`
   width: 80%;
   height: 80%;
+  
 `;
 const Form = styled.form`
   width: 100%;
@@ -23,6 +25,10 @@ const InputBox = styled(FlexBox)`
 const Lable = styled.label`
   width: 18%;
   margin-right: 2%;
+  
+  @media ${device.mobile}{
+    display: none;
+  }
 `;
 
 const Input = styled.input`
@@ -37,6 +43,11 @@ const Input = styled.input`
     color: ${(props) => props.theme.colors.bgColor};
     background: ${(props) => props.theme.colors.color};
   }
+
+  @media ${device.mobile}{
+    width: 100%;
+    margin-bottom: 5%;
+  }
 `;
 const Textarea = styled.textarea`
   width: 80%;
@@ -50,13 +61,26 @@ const Textarea = styled.textarea`
     color: ${(props) => props.theme.colors.bgColor};
     background: ${(props) => props.theme.colors.color};
   }
+
+  @media ${device.mobile}{
+    width: 100%;
+  }
 `;
 const SendButton = styled(Button)`
+  width: 30%;
+  height: 8%;
   margin-top: 5%;
   align-self: flex-end;
+
+  @media ${device.mobile}{
+    width: 100%;
+    height: 13%;
+    align-self: center;
+  }
 `;
 
 const EmailBox = () => {
+  let mobile = window.innerWidth <= 375;
 
   function sendEmail(e) {
     e.preventDefault();
@@ -70,30 +94,31 @@ const EmailBox = () => {
           console.log(error.text);
         }
       );
-      e.target.reset()
+    e.target.reset()
   }
   return (
+
     <>
       <Wrapper>
         <Form onSubmit={sendEmail}>
-        <InputBox>
-          <Lable>Name</Lable>
-          <Input type="text" name="from_name" placeholder="your name"/>
-        </InputBox>
-        <InputBox>
-          <Lable>Email</Lable>
-          <Input
-            type="email"
-            name="reply_to"
-            placeholder="your E-mail address"
-          />
-        </InputBox>
-        <InputBox text>
-          <Lable>Message</Lable>
-          <Textarea name="message" placeholder='projectName, duration...'/>
-        </InputBox>
-        <SendButton width="30%" height="8%" onSubmit={sendEmail}>
-          Send E-Mail
+          <InputBox>
+            <Lable>Name</Lable>
+            <Input type="text" name="from_name" placeholder="your name" />
+          </InputBox>
+          <InputBox>
+            <Lable>Email</Lable>
+            <Input
+              type="email"
+              name="reply_to"
+              placeholder="your E-mail address"
+            />
+          </InputBox>
+          <InputBox text>
+            <Lable>Message</Lable>
+            <Textarea name="message" placeholder='projectName, duration...' />
+          </InputBox>
+          <SendButton onSubmit={sendEmail}>
+            Send E-Mail
           </SendButton>
         </Form>
       </Wrapper>

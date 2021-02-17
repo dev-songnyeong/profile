@@ -24,6 +24,7 @@ const InputBox = styled(FlexBox)`
   
   @media ${device.mobile}{
     width: 80%;
+    border-top: none;
   }
 `;
 const TextBox = styled(FlexBox)`

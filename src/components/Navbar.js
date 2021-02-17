@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 
 import { device } from '../util/theme'
 import { H4, A } from '../util/util'
-// import CV from '../imgs/CV_SongnyeongNam.pdf'
 const NavbarWrapper = styled.div`
   position: fixed;
   top: 0;
