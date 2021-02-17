@@ -38,19 +38,16 @@ export const theme5 = {
         gradient:'-65deg,#ffc300,#ff5733,#c20030, #900c3f, #581845'
     }
 }
+const deviceSizes = {
+    mobile: "375px",
+    tablet: "768px",
+    desktop: "1024px",
+  };
 
-// const device = {
-//     mobileS: `only screen and (max-width: ${deviceSizes.mobileS})`,
-//     mobileM: `only screen and (max-width: ${deviceSizes.mobileM})`,
-//     mobileL: `only screen and (max-width: ${deviceSizes.mobileL})`,
-//     tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
-//     tabletL: `only screen and (max-width: ${deviceSizes.tabletL})`,
-//   };
+export const device = {
+    mobile: `only screen and (max-width: ${deviceSizes.mobile})`,
+    tablet: `only screen and (max-width: ${deviceSizes.tablet})`,
+    desktop: `only screen and (max-width: ${deviceSizes.tabletL})`,
+  };
 
-//   const deviceSizes = {
-//     mobileS: "320px",
-//     mobileM: "375px",
-//     mobileL: "450px",
-//     tablet: "768px",
-//     tabletL: "1024px",
-//   };
+  

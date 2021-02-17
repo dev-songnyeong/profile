@@ -1,9 +1,11 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { device } from '../util/theme'
 import { Gradient, FlexBox, H1, RightToLeft } from "../util/util";
+import { text, contactsList } from '../util/texts'
+
 import ContactBox from "../components/EmailBox";
 import IconBox from '../components/IconBox'
-import { text, contactsList } from '../util/texts'
 
 const Wrapper = styled(FlexBox)`
   width: 100%;
@@ -19,6 +21,10 @@ const InputBox = styled(FlexBox)`
   justify-content: space-around;
   border-top: 1px solid ${(props) => props.theme.colors.color};
   border-bottom: 1px solid ${(props) => props.theme.colors.color};
+  
+  @media ${device.mobile}{
+    width: 80%;
+  }
 `;
 const TextBox = styled(FlexBox)`
   width: ${(props) => props.width};
@@ -53,6 +59,9 @@ const TextBox = styled(FlexBox)`
         animation: none;
         cursor: none;
       }
+      @media ${device.mobile}{
+       display: none;
+      }
     `}
 `;
 const M1 = styled(H1)`
@@ -65,21 +74,28 @@ const M1 = styled(H1)`
     css`
       transform: rotate(180deg);
       animation: ${RightToLeft} 13s linear infinite;
+
+      @media ${device.mobile}{
+       display: none;
+      }
     `}
 `;
 const contacts = () => {
+  let mobile = window.innerWidth <= 375;
+
   return (
     <FlexBox height="95vh">
       <Wrapper direction="column">
-        <Wrapper transparent>
+        <Wrapper transparent direction={mobile ? 'column' : 'row'}>
+          {mobile ? <H1>Contacts</H1> : ''}
           <InputBox>
             <ContactBox />
           </InputBox>
           <InputBox>
-          <FlexBox direction="column" height='100%'>
-            {contactsList.map(contact => (
-              < IconBox key={contact.name} props={contact} />
-            ))}
+            <FlexBox direction="column" height='100%'>
+              {contactsList.map(contact => (
+                < IconBox key={contact.name} props={contact} />
+              ))}
             </FlexBox>
           </InputBox>
         </Wrapper>

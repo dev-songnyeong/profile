@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styled, { css } from "styled-components";
+
+import { device } from '../util/theme'
 import { Gradient, FlexBox, H3, H4, A } from "../util/util";
 import TechStack from "./TechStack";
 
@@ -24,10 +26,15 @@ const ProjectBoxWrapper = styled(A)`
   &:link, &:visited{
   color: ${(props) => props.theme.colors.color};
   }
+
+  @media ${device.mobile}{
+    width:78%;
+    margin-bottom: 13%;
+    }
 `;
 const ImgBox = styled.div`
   width: 100%;
-  height: 60%;
+  height: 65%;
   overflow: hidden;
 `;
 const Img = styled.img`
@@ -37,7 +44,7 @@ const Img = styled.img`
 
 const TextBox = styled(FlexBox)`
   width: 100%;
-  height: 40%;
+  height: 35%;
   justify-content: center;
   align-items: center;
 `;

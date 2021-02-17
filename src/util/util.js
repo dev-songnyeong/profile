@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
+import {device} from './theme'
 const vw = window.innerWidth;
-const calcSize = (size) => (size * vw) / 100;
 
 export const FlexBox = styled.div`
   width: 100%;
@@ -13,6 +13,10 @@ export const FlexBox = styled.div`
 export const H1 = styled.h1`
   font-size: ${(props) => props.size || "5.8vw"};
   font-weight: bold;
+
+  @media ${device.mobile} {
+    font-size: 7vw;
+  }
 `;
 export const H2 = styled.h2`
   font-size: 4vw;
@@ -21,12 +25,20 @@ export const H2 = styled.h2`
 export const H3 = styled.h3`
   font-size: 3vw;
   line-height: 130%;
+
+  @media ${device.mobile} {
+    font-size: 5vw;
+  }
 `;
 export const H4 = styled.h4`
   font-size: 1.3vw;
   color: ${(props) =>
-    props.reverse ? props.theme.colors.bgColor : props.theme.colors.color};
+  props.reverse ? props.theme.colors.bgColor : props.theme.colors.color};
   line-height: 130%;
+
+  @media ${device.mobile} {
+    font-size: 3vw;
+  }
 `;
 
 export const A = styled.a`
@@ -54,6 +66,12 @@ export const Circle = styled.div`
 
   &&:hover {
     cursor: none;
+  }
+
+  @media ${device.mobile}{
+    width: 45vw;
+    height: 45vw;
+    border: 5px double ${(props) => props.theme.colors.color}
   }
 `;
 export const Fadeout = keyframes`

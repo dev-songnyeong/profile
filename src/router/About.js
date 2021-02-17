@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
+import { device } from '../util/theme'
 import { FlexBox, H4 } from "../util/util";
 import { eng, imageUrls } from "../util/texts";
 
@@ -9,6 +10,10 @@ const Wrapper = styled(FlexBox)`
   justify-content: flex-end;
   background: transparent;
   z-index: 10;
+
+  @media ${device.mobile}{
+    flex-direction: column;
+  }
 `;
 const LogoBox = styled(FlexBox)`
   width: 35%;
@@ -16,6 +21,11 @@ const LogoBox = styled(FlexBox)`
   padding-top: 13.3%;
   align-items: flex-start;
   justify-content: center;
+
+  @media ${device.mobile}{
+    width: 0%;
+    height: 0%;
+  }
 `;
 const TextBox = styled.div`
   width: 35%;
@@ -27,8 +37,13 @@ const TextBox = styled.div`
   line-height: 100%;
 
   background: ${(props) => props.theme.colors.bgColor};
-  border-top: 2px solid ${(props) => props.theme.colors.color};
-  border-bottom: 2px solid ${(props) => props.theme.colors.color};
+  border-top: 1px solid ${(props) => props.theme.colors.color};
+  border-bottom: 1px solid ${(props) => props.theme.colors.color};
+
+  @media ${device.mobile}{
+    width: 78%;
+    height: 30%;
+  }
 `;
 const ImgBox = styled(FlexBox)`
   width: 30%;
@@ -38,6 +53,14 @@ const ImgBox = styled(FlexBox)`
   background: no-repeat center/200% url(${(props) => props.url});
   border-top: 1px solid ${(props) => props.theme.colors.color};
   border-bottom: 1px solid ${(props) => props.theme.colors.color};
+
+  @media ${device.mobile}{
+    width: 83%;
+    height: 70%;
+    flex-direction: row;
+    align-items:flex-end;
+    background: no-repeat top/200% url(${(props) => props.url});
+  }
 `;
 const Imgs = styled.div`
   width: ${(props) => props.width};
@@ -53,6 +76,9 @@ const Imgs = styled.div`
   display: flex;
   justify-content: ${(props) => props.justify};
   align-items: ${(props) => props.align};
+  @media ${device.mobile}{
+    position: inherit;
+  }
 `;
 const Introduction = styled.div`
 position: relative;
@@ -67,9 +93,10 @@ position: relative;
   font-weight: bold;
 `
 const About = () => {
+  let mobile = window.innerWidth <= 375;
   const [isMouseOver, setIsMouseOver] = useState(false)
   return (
-    <FlexBox height="50vh">
+    <FlexBox height={mobile? "100vh": "50vh"}>
       <Wrapper>
         <LogoBox>
           <H4 reverse>ABOUT</H4>
@@ -78,6 +105,8 @@ const About = () => {
           url={imageUrls.aboutMain}
           onMouseOver={() => (setIsMouseOver(true))}
           onMouseLeave={() => (setIsMouseOver(false))}>
+          {!mobile &&( 
+            <>
           <Imgs
             width="30%"
             height="30%"
@@ -108,6 +137,27 @@ const About = () => {
           >
             {isMouseOver && <Introduction width='52%' height='13%' left='4.7%' top='32%'>TEAM-PLAYER</Introduction>}
           </Imgs>
+          </>)}
+          {mobile &&(<> 
+            <Imgs
+            width="30%"
+            height="20%"
+            url={imageUrls.aboutSub1}
+          >
+          </Imgs>
+          <Imgs
+            width="30%"
+            height="20%"
+            url={imageUrls.aboutSub2}
+          >
+          </Imgs>
+          <Imgs
+            width="30%"
+            height="20%"
+            url={imageUrls.aboutSub3}
+          >
+          </Imgs>
+          </>)}
         </ImgBox>
         <TextBox>
           <H4>{eng.about}</H4>

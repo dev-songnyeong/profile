@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
 
@@ -57,50 +57,28 @@ const SendButton = styled(Button)`
 `;
 
 const EmailBox = () => {
-  const initialState = localStorage.getItem('email')? localStorage.getItem('email'):{
-    from_name: '',
-    reply_to: '',
-    message: ''
-  }
-  const [contents, setContents] = useState(initialState)
-
-  function handleInput(e) {
-    e.preventDefault();
-    const { name, value } = e.target;
-    setContents({
-      ...contents,
-      [name]: value,
-    });
-
-  }
-
 
   function sendEmail(e) {
-  if(contents.from_name !=='' && contents.reply_to !=='' && contents.message !==''){ 
-    setContents(initialState)  
+    e.preventDefault();
     emailjs
-      .sendForm('service_qk6f4g5', "template_z8pw4b6", contents, "user_1LgA5aPHh9elSWy8A1hQC")
+      .sendForm('service_qk6f4g5', "template_z8pw4b6", e.target, "user_1LgA5aPHh9elSWy8A1hQC")
       .then(
         (result) => {
-          alert('your mail sent succesfully')
+          alert(`Thank you! Looking forward to talk to you asap!`)
         },
         (error) => {
           console.log(error.text);
         }
       );
       e.target.reset()
-      }
-      else{
-        alert('please fill all the blocks')
-      }
   }
   return (
     <>
       <Wrapper>
-        <Form>
+        <Form onSubmit={sendEmail}>
         <InputBox>
           <Lable>Name</Lable>
-          <Input type="text" name="from_name" placeholder="your name" onChange={handleInput} />
+          <Input type="text" name="from_name" placeholder="your name"/>
         </InputBox>
         <InputBox>
           <Lable>Email</Lable>
@@ -108,14 +86,13 @@ const EmailBox = () => {
             type="email"
             name="reply_to"
             placeholder="your E-mail address"
-            onChange={handleInput}
           />
         </InputBox>
         <InputBox text>
           <Lable>Message</Lable>
-          <Textarea name="message" placeholder='projectName, duration...' onChange={handleInput} />
+          <Textarea name="message" placeholder='projectName, duration...'/>
         </InputBox>
-        <SendButton width="30%" height="8%" onClick={sendEmail}>
+        <SendButton width="30%" height="8%" onSubmit={sendEmail}>
           Send E-Mail
           </SendButton>
         </Form>

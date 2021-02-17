@@ -1,6 +1,7 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
+import { device } from '../util/theme'
 import { H4, A } from '../util/util'
 // import CV from '../imgs/CV_SongnyeongNam.pdf'
 const NavbarWrapper = styled.div`
@@ -21,6 +22,13 @@ const UL = styled.ul`
   display: flex;
   align-items: center;
   justify-content: space-around;
+
+  ${props => props.inspire && css`
+    width: 68%;
+    height: 100%;
+    justify-content: flex-start;
+    padding-rignt: 2%;
+  `}
 `;
 
 const Download = styled(A)`
@@ -34,6 +42,10 @@ const Download = styled(A)`
   background: ${(props) => props.theme.colors.color};
   color: ${(props) => props.theme.colors.bgColor};
   cursor: pointer;
+
+  @media ${device.mobile}{
+    width: 70%;
+  }
 `
 
 
@@ -42,6 +54,11 @@ const Navbar = () => {
   return (
     <>
       <NavbarWrapper>
+        <UL inspire>
+          <H4>
+        inspired by 5scontent.com
+        </H4>
+        </UL>
         <UL>
           <Download href='/imgs/CV_Songnyeong.Nam.pdf' download='cv_SongnyeongNam'>
             <H4 reverse>Download CV</H4>
